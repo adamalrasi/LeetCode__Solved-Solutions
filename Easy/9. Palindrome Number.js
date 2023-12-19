@@ -21,6 +21,7 @@ Output: false
 Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
  */
 
+
 function isPalindrome(x) {
   const reversed = Number(x.toString().split("").reverse().join(""));
   if (reversed == null) return false;
@@ -30,3 +31,19 @@ function isPalindrome(x) {
     return false;
   }
 }
+
+// Without using a string
+function isPal(x) {
+    if(x <= 0) return false
+    let reversed = 0
+    for(let i = x; i >= 1; i = Math.floor(i/10)){
+        reversed = reversed * 10 + i % 10
+    }
+    return reversed === x
+};
+
+
+console.log(isPal(121)) // true
+console.log(isPal(123)) // false
+console.log(isPal(-121)) // false
+console.log(isPal(0)) // false
